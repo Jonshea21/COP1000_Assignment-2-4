@@ -1,22 +1,32 @@
-# Initialize variables
-salary = float(input("Enter the employee's salary: "))  # Input for salary
-numDependents = int(input("Enter the number of dependents: "))  # Input for number of dependents
+# Function: This program determines if a student will be admitted or rejected.
+# Input:  Interactive
+# Output: Accept or Reject
 
-# Calculate state withholding tax at 6.5%
-stateTax = salary * 0.065  # 6.5 percent state tax
+# Get input and convert to correct data type for testScore and classRank
+testScoreString = input("Enter the student's test score: ")
+classRankString = input("Enter the student's class rank: ")
 
-# Calculate federal withholding tax at 28.0%
-federalTax = salary * 0.28  # 28 percent federal tax
+# Convert string representation to integer
+testScore = int(testScoreString)
+classRank = int(classRankString)
 
-# Calculate dependent deductions at 2.5% of the employee’s salary for each dependent
-dependentDeduction = salary * 0.025 * numDependents  # 2.5 percent per dependent
-
-# Calculate total withholding
-totalWithholding = stateTax + federalTax + dependentDeduction
-
-# Calculate take-home pay
-takeHomePay = salary - totalWithholding  # Salary minus total withholding
-
-# Output statements
-print("Salary: $" + str(salary))
-print("Take Home Pay: $" + str(takeHomePay))
+# Test using admission requirements and print Accept or Reject
+if testScore >= 90:
+    if classRank >= 25:
+        print("Accept")
+    else:
+        print("Reject")
+else:
+    if testScore >= 80:
+        if classRank >= 50:
+            print("Accept")
+        else:
+            print("Reject")
+    else:
+        if testScore >= 70:
+            if classRank >= 75:
+                print("Accept")
+            else:
+                print("Reject")
+        else:
+            print("Reject")
